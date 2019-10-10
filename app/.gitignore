@@ -38,3 +38,8 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
+
+
+
+/Docker/mysql/data/*
+!/Docker/mysql/data/.gitkeep

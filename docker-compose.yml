@@ -20,6 +20,7 @@ services:
    dockerfile: ./Docker/mysql/Dockerfile
   volumes:
    - ./Docker/mysql/sqls:/docker-entrypoint-initdb.d
+   - ./Docker/mysql/data:/var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=secret
   ports:
