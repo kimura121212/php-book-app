@@ -7,5 +7,6 @@ services:
    dockerfile: ./Docker/php/Dockerfile
   volumes:
    - .:/var/www/html:cached
+  command: bash -c "sh docker-init-setup.sh && apache2-foreground"
   ports:
    - "5000:80"
