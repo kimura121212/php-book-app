@@ -11,6 +11,10 @@ services:
   environment:
    - APP_DEFAULT_LOCALE=ja_jp
    - APP_DEFAULT_TIMEZONE=Asia/Tokyo
+   - DATABASEL_HOST=php-book-app-db
+   - DATABASEL_USER=root
+   - DATABASEL_PASS=secret
+   - DATABASEL_NAME=qa_app
   ports:
    - "5000:80"
  db:
