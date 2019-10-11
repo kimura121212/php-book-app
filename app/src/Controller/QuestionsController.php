@@ -9,7 +9,8 @@ class QuestionsController extends AppController
     // @inheritdoc
     public function initialize()
     {
-        parent:initialize();
+        parent::initialize();
+        $this->loadModel('Answers');
     }
     // 質問一覧画面
     // @return \Cake\Http\Response|void
@@ -42,5 +43,23 @@ class QuestionsController extends AppController
         }
         $this->set(compact('question'));
 
+    }
+
+    // 質問詳細画面
+    // @parent int $id
+    // @return void
+
+    public function view(int $id)
+    {
+        $question = $this->Questions->get($id);
+
+        $answers = $this
+            ->Answers
+            ->find()
+            ->where(['Answers.question_id' => $id])
+            ->orderAsc('Answer.id')
+            ->all();
+
+        $this->set(compact('question', 'answers'));
     }
 }
