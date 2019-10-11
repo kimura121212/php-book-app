@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Controller;
+
+// Logout Controller
+
+class LogoutController extends AppController
+{
+    // @inheritdoc
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->deny(['index']);
+    }
+
+    // ログアウト処理
+    // @return \Cake\Http\Response|null ログアウト後にログインTOPへ遷移する
+
+    public function index()
+    {
+        $this->Flash->success('ログアウトしました');
+        return $this->redirect($this->Auth->logout());
+    }
+}
